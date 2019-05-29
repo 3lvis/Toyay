@@ -4,7 +4,10 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "30th May, 2019"
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .medium
+        title = dateFormatter.string(from: Date())
 
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
@@ -25,7 +28,7 @@ class ViewController: UITableViewController {
     @objc func add() {
         let alert = UIAlertController(title: "What do you need to get done?", message: nil, preferredStyle: .alert)
 
-        alert.addTextField(configurationHandler: { _ in            
+        alert.addTextField(configurationHandler: { _ in
         })
 
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
