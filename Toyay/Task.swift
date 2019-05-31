@@ -5,8 +5,7 @@ class Task {
     let title: String
     var isCompleted: Bool = false
 
-    init(title: String, isCompleted: Bool) {
+    init(title: String) {
         self.title = title
-        self.isCompleted = isCompleted
     }
 }
