@@ -1,6 +1,9 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    static let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendingPathComponent("tasks")
+
     var tasks = [Task]()
 
     override func viewDidLoad() {
@@ -15,6 +18,7 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        loadTasks()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +43,7 @@ class ViewController: UITableViewController {
                 let task = Task(title: text)
                 self.tasks.append(task)
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
+                self.saveTasks()
             }
         })
         alert.addAction(saveAction)
@@ -54,12 +59,28 @@ class ViewController: UITableViewController {
         let complete = UITableViewRowAction(style: .normal, title: "Complete") { _, indexPath in
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.saveTasks()
         }
 
         complete.backgroundColor = view.tintColor
 
         return [complete]
 
+    }
+
+    func saveTasks() {
+        let data = try? NSKeyedArchiver.archivedData(withRootObject: tasks, requiringSecureCoding: false)
+        try? data?.write(to: ViewController.archiveURL)
+        //let data = try? NSKeyedArchiver.archivedData(withRootObject: tasks, requiringSecureCoding: false)
+        //UserDefaults.standard.set(data, forKey: "data")
+    }
+
+    func loadTasks() {
+        tasks = NSKeyedUnarchiver.unarchiveObject(withFile: ViewController.archiveURL.path) as? [Task] ?? [Task]()
+        //if let data = UserDefaults.standard.value(forKey: "data") as? Data {
+        //    tasks = try! NSKeyedUnarchiver.unarchivedObject(ofClass: Array.self, from: data)
+        //    tableView.reloadData()
+        //}
     }
 }
 
