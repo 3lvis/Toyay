@@ -69,26 +69,13 @@ class ViewController: UITableViewController {
     }
 
     func saveTasks() {
-        do {
-            let data = try NSKeyedArchiver.archivedData(withRootObject: tasks, requiringSecureCoding: false)
-            //UserDefaults.standard.set(data, forKey: "data")
-            try? data.write(to: ViewController.archiveURL)
-
-        } catch _ {
-            print(":D")
-        }
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: tasks, requiringSecureCoding: false)
+        try! data.write(to: ViewController.archiveURL)
     }
 
     func loadTasks() {
-        tasks = NSKeyedUnarchiver.unarchiveObject(withFile: ViewController.archiveURL.path) as? [Task] ?? [Task]()
-
-//        if let data = UserDefaults.standard.value(forKey: "data") as? Data {
-//            do {
-//                self.tasks = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Task] ?? [Task]()
-//            } catch _ {
-//                print(":D")
-//            }
-//        }
+        guard let data = FileManager().contents(atPath: ViewController.archiveURL.path) else { return }
+        tasks = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Task] ?? [Task]()
     }
 }
 
