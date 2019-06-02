@@ -26,9 +26,7 @@ class Task: NSObject, NSCoding {
             return nil
         }
 
-        guard let isCompleted = aDecoder.decodeObject(forKey: Keys.isCompleted.rawValue) as? Bool else  {
-            return nil
-        }
+        let isCompleted = aDecoder.decodeBool(forKey: Keys.isCompleted.rawValue)
 
         self.init(id: id, title: title, isCompleted: isCompleted)
     }
