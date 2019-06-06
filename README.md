@@ -14,47 +14,47 @@ Switch to the `step1` branch to get started and run the project pressing `CMD + 
 
 This is what you should see:
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step1.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step1.png)
 
 
 ### Step 2
 
 Change the color of the view to red
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step2.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step2.png)
 
 ### Step 3
 
 Add UITableViewController with hardcoded cells
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step3.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step3.png)
 
 ### Step 4
 
 Add model
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step4.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step4.png)
 
 ### Step 5
 
 Add new item button
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step5.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step5.png)
 
 ### Step 6
 
 Slide to complete
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step6.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step6.png)
 
 ### Step 7
 
 Persist your code
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step7.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step7.png)
 
 ### Step 8
 
 Add date as a title
 
-![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step8.jpg)
+![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step8.png)
