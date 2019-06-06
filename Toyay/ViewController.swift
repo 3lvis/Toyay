@@ -41,5 +41,17 @@ class ViewController: UITableViewController {
         alert.preferredAction = saveAction
         present(alert, animated: true, completion: nil)
     }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let complete = UITableViewRowAction(style: .normal, title: "Complete") { _, indexPath in
+            self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+
+        complete.backgroundColor = view.tintColor
+
+        return [complete]
+
+    }
 }
 
