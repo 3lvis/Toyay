@@ -21,11 +21,41 @@ This is what you should see:
 
 Change the color of the view to red
 
+```swift
+// ViewController.swift
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    view.backgroundColor = .red
+}
+```
+
 ![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step-2.jpg)
 
 ### Step 3
 
 Add UITableViewController with hardcoded cells
+
+```swift
+// ViewController.swift
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+}
+
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 10
+}
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    cell.textLabel?.text = "Hello WiT"
+    return cell
+}
+```
 
 ![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step-3.jpg)
 
@@ -33,11 +63,34 @@ Add UITableViewController with hardcoded cells
 
 Add model
 
+```swift
+// Task.swift
+
+import Foundation
+
+class Task: NSObject {
+    let title: String
+
+    init(title: String) {
+        self.title = title
+    }
+}
+```
+
 ![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step-4.jpg)
 
 ### Step 5
 
 Add new item button
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
+}
+```
 
 ![Toyay](https://raw.githubusercontent.com/3lvis/Toyay/master/GitHub/step-5.jpg)
 
