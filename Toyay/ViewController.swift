@@ -13,11 +13,10 @@ class ViewController: UITableViewController {
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .medium
         title = dateFormatter.string(from: Date())
-
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
         loadTasks()
     }
 
@@ -26,13 +25,12 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = tasks[indexPath.row].title
         return cell
     }
 
-    @objc func add() {
+    @objc func addItem() {
         let alert = UIAlertController(title: "What do you need to get done?", message: nil, preferredStyle: .alert)
 
         alert.addTextField(configurationHandler: nil)
@@ -65,7 +63,6 @@ class ViewController: UITableViewController {
         complete.backgroundColor = view.tintColor
 
         return [complete]
-
     }
 
     func saveTasks() {
