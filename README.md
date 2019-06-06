@@ -27,12 +27,20 @@ Add UITableViewController with hardcoded cells
 
 ### Step 4
 
-Add new item button
+Add model
 
 ### Step 5
 
-Slide to complete
+Add new item button
 
 ### Step 6
 
+Slide to complete
+
+### Step 7
+
 Persist your code
+
+### Step 8
+
+Add date as a title
