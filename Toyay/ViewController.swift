@@ -9,6 +9,12 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .medium
+        title = dateFormatter.string(from: Date())
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addItem))
         loadTasks()
