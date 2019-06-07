@@ -166,6 +166,9 @@ Persist your code
 
 `ViewController.swift
 ```swift
+static let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+static let archiveURL = documentsDirectory.appendingPathComponent("tasks")
+
 override func viewDidLoad() {
     //....
 
