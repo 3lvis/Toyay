@@ -21,9 +21,9 @@ This is what you should see:
 
 Change the color of the view to red
 
-```swift
-// ViewController.swift
+`ViewController.swift`
 
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -37,9 +37,9 @@ override func viewDidLoad() {
 
 Add UITableViewController with hardcoded cells
 
-```swift
-// ViewController.swift
+`ViewController.swift`
 
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -63,9 +63,9 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 Add model
 
-```swift
-// Task.swift
+`Task.swift`
 
+```swift
 import Foundation
 
 class Task: NSObject {
@@ -75,9 +75,11 @@ class Task: NSObject {
         self.title = title
     }
 }
+```
 
+`ViewController.swift`
 
-// ViewController.swift
+```
 let tasks = [
     Task(title: "Do my homework ✍️"),
     Task(title: "Do the laundry 👚"),
@@ -100,6 +102,8 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 ### Step 5
 
 Add new item button
+
+`ViewController.swift`
 
 ```swift
 override func viewDidLoad() {
@@ -138,9 +142,9 @@ override func viewDidLoad() {
 
 Slide to complete
 
-```swift
-// ViewController.swift
+`ViewController.swift`
 
+```swift
 override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let complete = UITableViewRowAction(style: .normal, title: "Complete") { _, indexPath in
         self.tasks.remove(at: indexPath.row)
@@ -160,8 +164,8 @@ override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath:
 
 Persist your code
 
+`ViewController.swift
 ```swift
-/// ViewController.swift
 override func viewDidLoad() {
     //....
 
@@ -199,9 +203,11 @@ func loadTasks() {
     guard let data = FileManager().contents(atPath: ViewController.archiveURL.path) else { return }
     tasks = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Task] ?? [Task]()
 }
+```
 
-/// Task.swift
+`Task.swift`
 
+```
 enum Keys: String {
     case title
 }
@@ -229,6 +235,8 @@ class Task: NSObject, NSCoding {
 ### Step 8
 
 Add date as a title
+
+`ViewController.swift`
 
 ```swift
 override func viewDidLoad() {
